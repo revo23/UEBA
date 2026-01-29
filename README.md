@@ -1,4 +1,4 @@
-UEBA from auth logs
+# UEBA from auth logs
 
 Input: Windows / Okta / AWS auth logs
 
