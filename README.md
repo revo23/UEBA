@@ -20,7 +20,7 @@ python main.py generate --days 60 --normal-users 50 --anomalous-users 10
 
 
 
-Features Extracted (per user)
+# Features Extracted (per user)
 | Feature                 | What it captures                                           |
 |-------------------------|------------------------------------------------------------|
 | login_hour_entropy       | Uniformity of login times across hours (high = suspicious spread) |
