@@ -35,7 +35,7 @@ python main.py generate --days 60 --normal-users 50 --anomalous-users 10
 | mfa_absence_ratio        | Logins without MFA                                        |
 
 
-Demo Results
+# Demo Results
 - 25 users analyzed (20 normal, 5 injected anomalies)
 - 4/5 true anomalies detected, 0 false positives
 - 100% precision, 80% recall, 88.9% F1
