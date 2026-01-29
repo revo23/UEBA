@@ -8,6 +8,8 @@ Model: Isolation Forest
 
 Output: ranked anomalies + explanation
 
+Results saved to sample_data/ueba_results.json
+
 
 # Full demo with synthetic data
 python main.py demo
@@ -39,4 +41,7 @@ python main.py generate --days 60 --normal-users 50 --anomalous-users 10
 - 25 users analyzed (20 normal, 5 injected anomalies)
 - 4/5 true anomalies detected, 0 false positives
 - 100% precision, 80% recall, 88.9% F1
+  - Precision: Of the 4 users the model flagged as anomalous, all 4 were genuinely anomalous. Zero false positives. In practice this means: every alert the system fires is worth investigating, no analyst time wasted on false alarms.
+  - Recall: Of the 5 truly anomalous users, the model caught 4. It missed anomaly_001 (a false negative). That user's anomaly traits (device_churn + high_failure) weren't extreme enough to separate it from the normal population at the current contamination threshold.
+  - F1: The harmonic mean of precision and recall. It penalizes imbalance — if either metric is low, F1 drops. 88.9% reflects strong precision slightly offset by the one missed user.
 - Top signals: device churn (z=3.4), off-hours logins (z=3.2), geo dispersion (z=2.6), impossible travel (z=2.2)
