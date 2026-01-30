@@ -46,17 +46,17 @@ python main.py generate --days 60 --normal-users 50 --anomalous-users 10
   - F1: The harmonic mean of precision and recall. It penalizes imbalance — if either metric is low, F1 drops. 88.9% reflects strong precision slightly offset by the one missed user.
 - Top signals: device churn (z=3.4), off-hours logins (z=3.2), geo dispersion (z=2.6), impossible travel (z=2.2)
   - A z-score (also called a standard score) measures how many standard deviations a data point is from the mean.
-Formula: z = (x - μ) / σ
-Where:
 
-x = individual value
-μ = mean of the dataset
-σ = standard deviation
+Formula: z = (x - μ) / σ  
+Where:  
+x = individual value  
+μ = mean of the dataset  
+σ = standard deviation  
 
-Interpretation:
+Interpretation:  
 
-z = 0: value is exactly at the mean
-z = 1: value is 1 standard deviation above the mean
-z = -1: value is 1 standard deviation below the mean
-z > 2 or z < -2: typically considered unusual (about 5% of data)
-z > 3 or z < -3: very unusual (about 0.3% of data)
+z = 0: value is exactly at the mean  
+z = 1: value is 1 standard deviation above the mean  
+z = -1: value is 1 standard deviation below the mean  
+z > 2 or z < -2: typically considered unusual (about 5% of data)  
+z > 3 or z < -3: very unusual (about 0.3% of data)  
