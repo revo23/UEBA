@@ -1,4 +1,4 @@
-#  User and Entity Behavior Analytics (UEBA) from auth logs
+#  User and Entity Behavior Analytics from authentication logs
 
 Input: Windows / Okta / AWS auth logs
 
