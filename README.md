@@ -12,6 +12,10 @@ Results saved to sample_data/ueba_results.json
 
 
 # Full demo with synthetic data
+python3 -m venv venv
+source venv/bin/activate
+pip install numpy pandas scikit-learn matplotlib
+
 python main.py demo
 
 # Analyze your own logs
