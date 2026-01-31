@@ -66,3 +66,10 @@ z = 1: value is 1 standard deviation above the mean
 z = -1: value is 1 standard deviation below the mean  
 z > 2 or z < -2: typically considered unusual (about 5% of data)  
 z > 3 or z < -3: very unusual (about 0.3% of data)  
+
+# Security Review - Static Application Security Testing (SAST) and Software Composition Analysis (SCA) 
+
+Automated security reviews in Claude Code help developers catch vulnerabilities before they reach production. These features check for common security issues including SQL injection risks, cross-site scripting (XSS) vulnerabilities, authentication flaws, insecure data handling, and dependency vulnerabilities.
+
+You can use security reviews in two ways: through the /security-review command for on-demand checks in your terminal, or through GitHub Actions for automatic review of pull requests.
+
