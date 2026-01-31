@@ -16,6 +16,7 @@ class LogSource(str, Enum):
     WINDOWS = "windows"
     OKTA = "okta"
     AWS = "aws"
+    WEBAPP = "webapp"
 
 
 class AuthResult(str, Enum):
@@ -168,6 +169,51 @@ def parse_aws_event(raw: dict) -> AuthEvent:
     )
 
 
+def parse_webapp_event(raw: dict) -> AuthEvent:
+    """Parse a web application authentication event (login/logout/password_reset/etc.)."""
+    event_type = raw.get("event_type", "").lower()
+    result_str = raw.get("result", "").lower()
+
+    # Map event_type + result to AuthResult
+    if event_type == "account_lockout":
+        result = AuthResult.LOCKED_OUT
+    elif event_type == "mfa_challenge" or result_str == "mfa_challenge":
+        result = AuthResult.MFA_CHALLENGE
+    elif result_str in ("success", "failure", "locked_out"):
+        result = AuthResult(result_str)
+    else:
+        # Fallback: derive from status_code
+        status_code = raw.get("status_code", 0)
+        if status_code in (401, 403):
+            result = AuthResult.FAILURE
+        elif status_code == 423:
+            result = AuthResult.LOCKED_OUT
+        elif status_code == 200:
+            result = AuthResult.SUCCESS
+        else:
+            result = _parse_result(raw)
+
+    ts = _parse_timestamp(raw.get("timestamp", ""))
+
+    return AuthEvent(
+        timestamp=ts,
+        username=raw.get("username", "unknown"),
+        source=LogSource.WEBAPP,
+        result=result,
+        source_ip=raw.get("source_ip", "0.0.0.0"),
+        geo_country=raw.get("geo_country", "unknown"),
+        geo_city=raw.get("geo_city", "unknown"),
+        geo_lat=float(raw.get("geo_lat", 0.0)),
+        geo_lon=float(raw.get("geo_lon", 0.0)),
+        device_id=raw.get("device_id", "unknown"),
+        device_type="browser",
+        user_agent=raw.get("user_agent", ""),
+        session_id=raw.get("session_id", ""),
+        mfa_used=bool(raw.get("mfa_used", False)),
+        raw=raw,
+    )
+
+
 # ---------------------------------------------------------------------------
 # Unified loader
 # ---------------------------------------------------------------------------
@@ -176,6 +222,7 @@ PARSERS = {
     LogSource.WINDOWS: parse_windows_event,
     LogSource.OKTA: parse_okta_event,
     LogSource.AWS: parse_aws_event,
+    LogSource.WEBAPP: parse_webapp_event,
 }
 
 

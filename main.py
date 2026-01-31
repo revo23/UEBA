@@ -50,6 +50,8 @@ def load_auto(path: Path) -> list[AuthEvent]:
             src = LogSource.OKTA
         elif src_str in ("aws",):
             src = LogSource.AWS
+        elif src_str in ("webapp",):
+            src = LogSource.WEBAPP
         else:
             src = LogSource.OKTA  # fallback
         events.append(PARSERS[src](rec))
@@ -244,7 +246,7 @@ def main():
     # analyze
     ana = sub.add_parser("analyze", help="Analyze auth logs for anomalies")
     ana.add_argument("--input", required=True, help="Path to auth log JSON/JSONL")
-    ana.add_argument("--source", default="auto", choices=["auto", "windows", "okta", "aws"])
+    ana.add_argument("--source", default="auto", choices=["auto", "windows", "okta", "aws", "webapp"])
     ana.add_argument("--contamination", type=float, default=0.15,
                      help="Expected proportion of anomalies (0.01-0.5)")
     ana.add_argument("--estimators", type=int, default=200)

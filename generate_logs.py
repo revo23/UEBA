@@ -43,6 +43,31 @@ USER_AGENTS = [
     "Okta-Browser-Plugin/6.21.0",
 ]
 
+WEBAPP_USER_AGENTS = [
+    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/120.0.0.0 Safari/537.36",
+    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 Safari/17.2",
+    "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:121.0) Gecko/20100101 Firefox/121.0",
+    "Mozilla/5.0 (iPhone; CPU iPhone OS 17_2 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148",
+    "Mozilla/5.0 (Linux; Android 14; Pixel 8) AppleWebKit/537.36 Chrome/120.0.0.0 Mobile Safari/537.36",
+]
+
+WEBAPP_EVENT_TYPES = ["login", "login", "login", "login", "logout", "logout", "password_reset", "session_expired", "account_lockout"]
+WEBAPP_APP_NAMES = ["portal", "dashboard", "admin", "api"]
+WEBAPP_REQUEST_PATHS = {
+    "login": "/auth/login",
+    "logout": "/auth/logout",
+    "password_reset": "/auth/password-reset",
+    "session_expired": "/auth/session",
+    "account_lockout": "/auth/login",
+}
+WEBAPP_HTTP_METHODS = {
+    "login": "POST",
+    "logout": "POST",
+    "password_reset": "POST",
+    "session_expired": "GET",
+    "account_lockout": "POST",
+}
+
 
 def _pick_geo(allowed: list[str]) -> tuple[str, str, float, float]:
     return GEOS[random.choice(allowed)]
@@ -81,7 +106,7 @@ def build_normal_users(n: int = 20) -> list[UserProfile]:
     for i in range(n):
         geo_keys = list(GEOS.keys())
         home = random.sample(geo_keys, k=random.randint(1, 2))
-        sources = random.sample(["windows", "okta", "aws"], k=random.randint(1, 3))
+        sources = random.sample(["windows", "okta", "aws", "webapp"], k=random.randint(1, 4))
         users.append(UserProfile(
             username=f"user_{i:03d}",
             sources=sources,
@@ -109,7 +134,7 @@ def build_anomalous_users(n: int = 5) -> list[UserProfile]:
     for i in range(n):
         geo_keys = list(GEOS.keys())
         home = random.sample(geo_keys, k=1)
-        sources = random.sample(["windows", "okta", "aws"], k=random.randint(2, 3))
+        sources = random.sample(["windows", "okta", "aws", "webapp"], k=random.randint(2, 4))
         traits = trait_combos[i % len(trait_combos)]
         users.append(UserProfile(
             username=f"anomaly_{i:03d}",
@@ -171,7 +196,7 @@ def _gen_event(
     source = random.choice(user.sources)
     ip = f"{random.randint(1,223)}.{random.randint(0,255)}.{random.randint(0,255)}.{random.randint(1,254)}"
 
-    return {
+    event = {
         "timestamp": ts.isoformat() + "Z",
         "username": user.username,
         "source": source,
@@ -181,12 +206,33 @@ def _gen_event(
         "geo_city": geo[1],
         "geo_lat": geo[2],
         "geo_lon": geo[3],
-        "device_id": device,
+        "device_id": device if source != "webapp" else f"fp-{random.randint(0x1000, 0xffff):04x}",
         "device_type": "workstation" if source == "windows" else "browser",
-        "user_agent": random.choice(USER_AGENTS),
+        "user_agent": random.choice(WEBAPP_USER_AGENTS if source == "webapp" else USER_AGENTS),
         "session_id": f"sess-{random.randint(100000, 999999)}",
         "mfa_used": random.random() < 0.6,
     }
+
+    if source == "webapp":
+        event_type = random.choice(WEBAPP_EVENT_TYPES)
+        # Override result for account_lockout events
+        if event_type == "account_lockout":
+            event["result"] = "locked_out"
+        event["event_type"] = event_type
+        event["app_name"] = random.choice(WEBAPP_APP_NAMES)
+        event["http_method"] = WEBAPP_HTTP_METHODS[event_type]
+        event["request_path"] = WEBAPP_REQUEST_PATHS[event_type]
+        r = event["result"]
+        if r == "success":
+            event["status_code"] = 200
+        elif r == "failure":
+            event["status_code"] = 401
+        elif r == "locked_out":
+            event["status_code"] = 423
+        else:
+            event["status_code"] = 200
+
+    return event
 
 
 def generate_dataset(
@@ -223,7 +269,7 @@ def save_dataset(output_dir: Path, events: list[dict], anomalous_users: list[str
     output_dir.mkdir(parents=True, exist_ok=True)
 
     # Split by source type
-    by_source: dict[str, list[dict]] = {"windows": [], "okta": [], "aws": []}
+    by_source: dict[str, list[dict]] = {"windows": [], "okta": [], "aws": [], "webapp": []}
     for e in events:
         by_source.setdefault(e["source"], []).append(e)
 
