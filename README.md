@@ -1,6 +1,6 @@
 #  User and Entity Behavior Analytics from authentication logs
 
-Input: Windows / Okta / AWS auth logs
+Input: Windows / Okta / AWS / Webapp auth logs
 
 Features: login hour entropy, geo variance, device churn
 
@@ -20,7 +20,7 @@ pip install numpy pandas scikit-learn matplotlib
 
 python main.py demo
 
-# Analyze your own logs
+# Analyze your own logs (supports: windows, okta, aws, webapp, or auto-detect)
 python main.py analyze --input /path/to/auth_logs.json --source auto
 
 # Generate custom synthetic data
@@ -81,10 +81,10 @@ You can use security reviews in two ways: through the /security-review command f
 
 All source files were reviewed:
 - `main.py` - CLI entry point and orchestration
-- `models.py` - Data models and log parsers
+- `models.py` - Data models and log parsers (Windows, Okta, AWS, Webapp)
 - `features.py` - Feature extraction pipeline
 - `detector.py` - Anomaly detection engine
-- `generate_logs.py` - Synthetic test data generator
+- `generate_logs.py` - Synthetic test data generator (all 4 log sources)
 
 ### Assessment
 
