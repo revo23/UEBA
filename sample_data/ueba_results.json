@@ -1,844 +1,829 @@
 [
   {
     "rank": 1,
-    "username": "anomaly_004",
-    "anomaly_score": 0.6678,
+    "username": "anomaly_002",
+    "anomaly_score": 0.6684,
     "is_anomaly": true,
     "top_reasons": [
-      "[z=3.7] geo_velocity_max_kmh=34211069.43 \u2014 Impossible travel detected \u2014 consecutive logins from distant locations in a short time span",
-      "[z=2.6] off_hours_ratio=0.27 \u2014 High proportion of logins outside business hours (before 7am / after 7pm) \u2014 may indicate unauthorized access",
-      "[z=2.4] login_hour_entropy=3.87 \u2014 Login times are unusually spread across all hours (high entropy) \u2014 may indicate automated access or compromised credentials used across time zones"
+      "[z=4.9] device_churn_rate=23.50 \u2014 Many new/unseen devices appeared recently \u2014 possible credential stuffing or account takeover",
+      "[z=2.3] unique_countries=9.00 \u2014 Logins from an unusually high number of distinct countries \u2014 impossible travel or proxy/VPN abuse",
+      "[z=2.3] login_hour_entropy=3.85 \u2014 Login times are unusually spread across all hours (high entropy) \u2014 may indicate automated access or compromised credentials used across time zones"
     ],
     "feature_contributions": {
-      "login_hour_entropy": 2.4093,
-      "geo_variance_km": 2.0477,
-      "device_churn_rate": 2.0475,
-      "failure_ratio": 1.7561,
-      "unique_countries": 2.2627,
-      "unique_ips": 0.6658,
-      "off_hours_ratio": 2.6234,
-      "avg_events_per_day": 0.6661,
-      "geo_velocity_max_kmh": 3.7162,
-      "mfa_absence_ratio": 1.0067
+      "login_hour_entropy": 2.2808,
+      "geo_variance_km": 1.779,
+      "device_churn_rate": 4.8711,
+      "failure_ratio": 0.1706,
+      "unique_countries": 2.3491,
+      "unique_ips": 0.3131,
+      "off_hours_ratio": 2.0093,
+      "avg_events_per_day": 0.2901,
+      "geo_velocity_max_kmh": 0.0009,
+      "mfa_absence_ratio": 2.2705
     },
     "raw_features": {
-      "login_hour_entropy": 3.8658,
-      "geo_variance_km": 3349.03,
-      "device_churn_rate": 0.8,
-      "failure_ratio": 0.1055,
+      "login_hour_entropy": 3.8456,
+      "geo_variance_km": 2881.75,
+      "device_churn_rate": 23.5,
+      "failure_ratio": 0.039,
       "unique_countries": 9.0,
-      "unique_ips": 237.0,
-      "off_hours_ratio": 0.2743,
-      "avg_events_per_day": 7.9,
-      "geo_velocity_max_kmh": 34211069.43,
-      "mfa_absence_ratio": 0.4304
+      "unique_ips": 231.0,
+      "off_hours_ratio": 0.2251,
+      "avg_events_per_day": 7.7,
+      "geo_velocity_max_kmh": 2759849.66,
+      "mfa_absence_ratio": 0.4805
     }
   },
   {
     "rank": 2,
-    "username": "anomaly_002",
-    "anomaly_score": 0.6403,
+    "username": "anomaly_004",
+    "anomaly_score": 0.6676,
     "is_anomaly": true,
     "top_reasons": [
-      "[z=3.6] off_hours_ratio=0.36 \u2014 High proportion of logins outside business hours (before 7am / after 7pm) \u2014 may indicate unauthorized access",
-      "[z=2.8] login_hour_entropy=3.94 \u2014 Login times are unusually spread across all hours (high entropy) \u2014 may indicate automated access or compromised credentials used across time zones",
-      "[z=2.6] geo_variance_km=4018.54 \u2014 Login locations are geographically dispersed \u2014 unusual for a single user, may indicate credential sharing or compromise"
+      "[z=3.8] off_hours_ratio=0.40 \u2014 High proportion of logins outside business hours (before 7am / after 7pm) \u2014 may indicate unauthorized access",
+      "[z=3.1] failure_ratio=0.13 \u2014 High ratio of failed authentication attempts \u2014 may indicate brute-force or credential spraying",
+      "[z=3.0] login_hour_entropy=3.96 \u2014 Login times are unusually spread across all hours (high entropy) \u2014 may indicate automated access or compromised credentials used across time zones"
     ],
     "feature_contributions": {
-      "login_hour_entropy": 2.8468,
-      "geo_variance_km": 2.5611,
-      "device_churn_rate": 2.0995,
-      "failure_ratio": 0.0243,
-      "unique_countries": 2.2627,
-      "unique_ips": 0.9441,
-      "off_hours_ratio": 3.5927,
-      "avg_events_per_day": 0.9504,
-      "geo_velocity_max_kmh": 0.3537,
-      "mfa_absence_ratio": 1.068
+      "login_hour_entropy": 2.9572,
+      "geo_variance_km": 2.6442,
+      "device_churn_rate": 0.0888,
+      "failure_ratio": 3.0666,
+      "unique_countries": 2.3491,
+      "unique_ips": 1.2501,
+      "off_hours_ratio": 3.7942,
+      "avg_events_per_day": 1.219,
+      "geo_velocity_max_kmh": 0.2051,
+      "mfa_absence_ratio": 0.2432
     },
     "raw_features": {
-      "login_hour_entropy": 3.9405,
-      "geo_variance_km": 4018.54,
-      "device_churn_rate": 0.8125,
-      "failure_ratio": 0.0372,
+      "login_hour_entropy": 3.9611,
+      "geo_variance_km": 3980.15,
+      "device_churn_rate": 0.7963,
+      "failure_ratio": 0.1331,
       "unique_countries": 9.0,
-      "unique_ips": 242.0,
-      "off_hours_ratio": 0.3636,
-      "avg_events_per_day": 8.07,
-      "geo_velocity_max_kmh": 565974.51,
-      "mfa_absence_ratio": 0.376
+      "unique_ips": 248.0,
+      "off_hours_ratio": 0.3952,
+      "avg_events_per_day": 8.27,
+      "geo_velocity_max_kmh": 300722.4,
+      "mfa_absence_ratio": 0.4113
     }
   },
   {
     "rank": 3,
     "username": "anomaly_003",
-    "anomaly_score": 0.6232,
+    "anomaly_score": 0.651,
     "is_anomaly": true,
     "top_reasons": [
-      "[z=2.6] geo_variance_km=4046.04 \u2014 Login locations are geographically dispersed \u2014 unusual for a single user, may indicate credential sharing or compromise",
-      "[z=2.3] unique_countries=9.00 \u2014 Logins from an unusually high number of distinct countries \u2014 impossible travel or proxy/VPN abuse",
-      "[z=2.0] login_hour_entropy=3.11 \u2014 Login times are unusually spread across all hours (high entropy) \u2014 may indicate automated access or compromised credentials used across time zones"
+      "[z=4.9] geo_velocity_max_kmh=61178160.46 \u2014 Impossible travel detected \u2014 consecutive logins from distant locations in a short time span",
+      "[z=2.5] failure_ratio=0.11 \u2014 High ratio of failed authentication attempts \u2014 may indicate brute-force or credential spraying",
+      "[z=2.3] unique_countries=9.00 \u2014 Logins from an unusually high number of distinct countries \u2014 impossible travel or proxy/VPN abuse"
     ],
     "feature_contributions": {
-      "login_hour_entropy": 1.9921,
-      "geo_variance_km": 2.5822,
-      "device_churn_rate": 0.3192,
-      "failure_ratio": 1.3364,
-      "unique_countries": 2.2627,
-      "unique_ips": 0.5545,
-      "off_hours_ratio": 0.3538,
-      "avg_events_per_day": 0.5491,
-      "geo_velocity_max_kmh": 1.8907,
-      "mfa_absence_ratio": 0.1715
+      "login_hour_entropy": 1.7492,
+      "geo_variance_km": 2.1432,
+      "device_churn_rate": 0.2627,
+      "failure_ratio": 2.4757,
+      "unique_countries": 2.3491,
+      "unique_ips": 0.6438,
+      "off_hours_ratio": 0.3527,
+      "avg_events_per_day": 1.056,
+      "geo_velocity_max_kmh": 4.8936,
+      "mfa_absence_ratio": 0.4336
     },
     "raw_features": {
-      "login_hour_entropy": 3.1143,
-      "geo_variance_km": 4046.04,
-      "device_churn_rate": 0.3846,
-      "failure_ratio": 0.0894,
+      "login_hour_entropy": 3.1575,
+      "geo_variance_km": 3344.1,
+      "device_churn_rate": 0.0,
+      "failure_ratio": 0.1139,
       "unique_countries": 9.0,
-      "unique_ips": 235.0,
+      "unique_ips": 237.0,
       "off_hours_ratio": 0.0,
-      "avg_events_per_day": 7.83,
-      "geo_velocity_max_kmh": 19120405.89,
-      "mfa_absence_ratio": 0.4085
+      "avg_events_per_day": 8.17,
+      "geo_velocity_max_kmh": 61178160.46,
+      "mfa_absence_ratio": 0.3882
     }
   },
   {
     "rank": 4,
-    "username": "anomaly_001",
-    "anomaly_score": 0.6174,
+    "username": "anomaly_000",
+    "anomaly_score": 0.6117,
     "is_anomaly": true,
     "top_reasons": [
-      "[z=4.1] failure_ratio=0.20 \u2014 High ratio of failed authentication attempts \u2014 may indicate brute-force or credential spraying",
-      "[z=2.6] mfa_absence_ratio=0.47 \u2014 High proportion of logins without MFA \u2014 may indicate MFA bypass or legacy auth protocol abuse",
-      "[z=1.9] login_hour_entropy=3.14 \u2014 Login times are unusually spread across all hours (high entropy) \u2014 may indicate automated access or compromised credentials used across time zones"
+      "[z=2.4] geo_variance_km=3676.81 \u2014 Login locations are geographically dispersed \u2014 unusual for a single user, may indicate credential sharing or compromise",
+      "[z=2.0] login_hour_entropy=3.80 \u2014 Login times are unusually spread across all hours (high entropy) \u2014 may indicate automated access or compromised credentials used across time zones",
+      "[z=2.0] unique_countries=8.00 \u2014 Logins from an unusually high number of distinct countries \u2014 impossible travel or proxy/VPN abuse"
     ],
     "feature_contributions": {
-      "login_hour_entropy": 1.8515,
-      "geo_variance_km": 0.5207,
-      "device_churn_rate": 1.4059,
-      "failure_ratio": 4.1413,
-      "unique_countries": 0.5657,
-      "unique_ips": 1.2269,
-      "off_hours_ratio": 0.3538,
-      "avg_events_per_day": 1.2233,
-      "geo_velocity_max_kmh": 0.4222,
-      "mfa_absence_ratio": 2.6276
+      "login_hour_entropy": 1.9932,
+      "geo_variance_km": 2.4053,
+      "device_churn_rate": 0.2627,
+      "failure_ratio": 0.4418,
+      "unique_countries": 1.9866,
+      "unique_ips": 0.8995,
+      "off_hours_ratio": 1.9568,
+      "avg_events_per_day": 0.8996,
+      "geo_velocity_max_kmh": 0.1995,
+      "mfa_absence_ratio": 0.0322
     },
     "raw_features": {
-      "login_hour_entropy": 3.1383,
-      "geo_variance_km": 0.0,
-      "device_churn_rate": 0.6458,
-      "failure_ratio": 0.197,
-      "unique_countries": 1.0,
-      "unique_ips": 203.0,
-      "off_hours_ratio": 0.0,
-      "avg_events_per_day": 6.77,
-      "geo_velocity_max_kmh": 0.0,
-      "mfa_absence_ratio": 0.4729
+      "login_hour_entropy": 3.7965,
+      "geo_variance_km": 3676.81,
+      "device_churn_rate": 0.0,
+      "failure_ratio": 0.0191,
+      "unique_countries": 8.0,
+      "unique_ips": 209.0,
+      "off_hours_ratio": 0.2201,
+      "avg_events_per_day": 6.97,
+      "geo_velocity_max_kmh": 367635.7,
+      "mfa_absence_ratio": 0.4019
     }
   },
   {
     "rank": 5,
-    "username": "anomaly_000",
-    "anomaly_score": 0.5728,
+    "username": "anomaly_001",
+    "anomaly_score": 0.557,
     "is_anomaly": false,
     "top_reasons": [
-      "[z=2.3] unique_countries=9.00 \u2014 Logins from an unusually high number of distinct countries \u2014 impossible travel or proxy/VPN abuse",
-      "[z=1.8] geo_variance_km=3020.03 \u2014 Login locations are geographically dispersed \u2014 unusual for a single user, may indicate credential sharing or compromise",
-      "[z=1.7] login_hour_entropy=3.75 \u2014 Login times are unusually spread across all hours (high entropy) \u2014 may indicate automated access or compromised credentials used across time zones"
+      "[z=2.2] failure_ratio=0.10 \u2014 High ratio of failed authentication attempts \u2014 may indicate brute-force or credential spraying",
+      "[z=1.8] login_hour_entropy=3.15 \u2014 Login times are unusually spread across all hours (high entropy) \u2014 may indicate automated access or compromised credentials used across time zones"
     ],
     "feature_contributions": {
-      "login_hour_entropy": 1.7405,
-      "geo_variance_km": 1.7953,
-      "device_churn_rate": 0.1374,
-      "failure_ratio": 0.3032,
-      "unique_countries": 2.2627,
-      "unique_ips": 0.0534,
-      "off_hours_ratio": 1.5673,
-      "avg_events_per_day": 0.0475,
-      "geo_velocity_max_kmh": 0.3548,
-      "mfa_absence_ratio": 0.7248
+      "login_hour_entropy": 1.7967,
+      "geo_variance_km": 0.491,
+      "device_churn_rate": 0.2834,
+      "failure_ratio": 2.1772,
+      "unique_countries": 0.551,
+      "unique_ips": 0.8091,
+      "off_hours_ratio": 0.3527,
+      "avg_events_per_day": 0.779,
+      "geo_velocity_max_kmh": 0.2303,
+      "mfa_absence_ratio": 0.3311
     },
     "raw_features": {
-      "login_hour_entropy": 3.7516,
-      "geo_variance_km": 3020.03,
-      "device_churn_rate": 0.3409,
-      "failure_ratio": 0.0265,
-      "unique_countries": 9.0,
-      "unique_ips": 226.0,
-      "off_hours_ratio": 0.177,
-      "avg_events_per_day": 7.53,
-      "geo_velocity_max_kmh": 557361.83,
-      "mfa_absence_ratio": 0.385
+      "login_hour_entropy": 3.1494,
+      "geo_variance_km": 0.0,
+      "device_churn_rate": 2.5,
+      "failure_ratio": 0.1042,
+      "unique_countries": 1.0,
+      "unique_ips": 240.0,
+      "off_hours_ratio": 0.0,
+      "avg_events_per_day": 8.0,
+      "geo_velocity_max_kmh": 0.0,
+      "mfa_absence_ratio": 0.3917
     }
   },
   {
     "rank": 6,
     "username": "user_005",
-    "anomaly_score": 0.5042,
+    "anomaly_score": 0.4898,
     "is_anomaly": false,
     "top_reasons": [
-      "[z=2.1] geo_velocity_max_kmh=21119025.72 \u2014 Impossible travel detected \u2014 consecutive logins from distant locations in a short time span",
-      "[z=1.2] avg_events_per_day=6.80 \u2014 Unusually high login volume per day \u2014 possible automated access or service account abuse",
-      "[z=1.2] unique_ips=204.00 \u2014 Logins from many unique IP addresses \u2014 possible credential sharing or botnet activity"
+      "[z=1.6] unique_ips=197.00 \u2014 Logins from many unique IP addresses \u2014 possible credential sharing or botnet activity",
+      "[z=1.6] avg_events_per_day=6.57 \u2014 Unusually high login volume per day \u2014 possible automated access or service account abuse"
     ],
     "feature_contributions": {
-      "login_hour_entropy": 0.3364,
-      "geo_variance_km": 0.1383,
-      "device_churn_rate": 0.0049,
-      "failure_ratio": 0.4831,
-      "unique_countries": 0.2121,
-      "unique_ips": 1.1713,
-      "off_hours_ratio": 0.3538,
-      "avg_events_per_day": 1.1731,
-      "geo_velocity_max_kmh": 2.1325,
-      "mfa_absence_ratio": 0.2633
+      "login_hour_entropy": 0.1463,
+      "geo_variance_km": 0.3061,
+      "device_churn_rate": 0.2169,
+      "failure_ratio": 0.2199,
+      "unique_countries": 0.1885,
+      "unique_ips": 1.5609,
+      "off_hours_ratio": 0.3527,
+      "avg_events_per_day": 1.5514,
+      "geo_velocity_max_kmh": 0.1942,
+      "mfa_absence_ratio": 0.8027
     },
     "raw_features": {
-      "login_hour_entropy": 3.397,
-      "geo_variance_km": 498.58,
-      "device_churn_rate": 0.3067,
-      "failure_ratio": 0.0196,
+      "login_hour_entropy": 3.4312,
+      "geo_variance_km": 1011.91,
+      "device_churn_rate": 0.2097,
+      "failure_ratio": 0.0406,
       "unique_countries": 2.0,
-      "unique_ips": 204.0,
+      "unique_ips": 197.0,
       "off_hours_ratio": 0.0,
-      "avg_events_per_day": 6.8,
-      "geo_velocity_max_kmh": 21119025.72,
-      "mfa_absence_ratio": 0.3971
+      "avg_events_per_day": 6.57,
+      "geo_velocity_max_kmh": 430368.0,
+      "mfa_absence_ratio": 0.3756
     }
   },
   {
     "rank": 7,
-    "username": "user_018",
-    "anomaly_score": 0.5035,
+    "username": "user_008",
+    "anomaly_score": 0.4588,
     "is_anomaly": false,
     "top_reasons": [
-      "[z=2.3] avg_events_per_day=8.87 \u2014 Unusually high login volume per day \u2014 possible automated access or service account abuse",
-      "[z=2.3] unique_ips=266.00 \u2014 Logins from many unique IP addresses \u2014 possible credential sharing or botnet activity",
-      "[z=1.3] device_churn_rate=0.00 \u2014 Many new/unseen devices appeared recently \u2014 possible credential stuffing or account takeover"
+      "[z=1.5] mfa_absence_ratio=0.45 \u2014 High proportion of logins without MFA \u2014 may indicate MFA bypass or legacy auth protocol abuse",
+      "[z=1.3] unique_ips=201.00 \u2014 Logins from many unique IP addresses \u2014 possible credential sharing or botnet activity",
+      "[z=1.3] avg_events_per_day=6.70 \u2014 Unusually high login volume per day \u2014 possible automated access or service account abuse"
     ],
     "feature_contributions": {
-      "login_hour_entropy": 0.067,
-      "geo_variance_km": 0.5207,
-      "device_churn_rate": 1.2809,
-      "failure_ratio": 0.603,
-      "unique_countries": 0.5657,
-      "unique_ips": 2.2802,
-      "off_hours_ratio": 0.3538,
-      "avg_events_per_day": 2.288,
-      "geo_velocity_max_kmh": 0.4222,
-      "mfa_absence_ratio": 0.652
+      "login_hour_entropy": 0.1363,
+      "geo_variance_km": 0.4576,
+      "device_churn_rate": 0.1993,
+      "failure_ratio": 0.0414,
+      "unique_countries": 0.1885,
+      "unique_ips": 1.3404,
+      "off_hours_ratio": 0.3527,
+      "avg_events_per_day": 1.3396,
+      "geo_velocity_max_kmh": 0.1947,
+      "mfa_absence_ratio": 1.4561
     },
     "raw_features": {
-      "login_hour_entropy": 3.443,
-      "geo_variance_km": 0.0,
-      "device_churn_rate": 0.0,
-      "failure_ratio": 0.015,
-      "unique_countries": 1.0,
-      "unique_ips": 266.0,
+      "login_hour_entropy": 3.4329,
+      "geo_variance_km": 42.41,
+      "device_churn_rate": 0.2903,
+      "failure_ratio": 0.0348,
+      "unique_countries": 2.0,
+      "unique_ips": 201.0,
       "off_hours_ratio": 0.0,
-      "avg_events_per_day": 8.87,
-      "geo_velocity_max_kmh": 0.0,
-      "mfa_absence_ratio": 0.4211
+      "avg_events_per_day": 6.7,
+      "geo_velocity_max_kmh": 424919.86,
+      "mfa_absence_ratio": 0.4527
     }
   },
   {
     "rank": 8,
-    "username": "user_014",
-    "anomaly_score": 0.4774,
+    "username": "user_002",
+    "anomaly_score": 0.4582,
     "is_anomaly": false,
     "top_reasons": [
-      "[z=1.4] unique_ips=200.00 \u2014 Logins from many unique IP addresses \u2014 possible credential sharing or botnet activity",
-      "[z=1.4] avg_events_per_day=6.67 \u2014 Unusually high login volume per day \u2014 possible automated access or service account abuse",
-      "[z=1.4] mfa_absence_ratio=0.44 \u2014 High proportion of logins without MFA \u2014 may indicate MFA bypass or legacy auth protocol abuse"
+      "[z=2.0] unique_ips=262.00 \u2014 Logins from many unique IP addresses \u2014 possible credential sharing or botnet activity",
+      "[z=2.0] avg_events_per_day=8.73 \u2014 Unusually high login volume per day \u2014 possible automated access or service account abuse"
     ],
     "feature_contributions": {
-      "login_hour_entropy": 0.057,
-      "geo_variance_km": 0.3529,
-      "device_churn_rate": 0.7993,
-      "failure_ratio": 0.212,
-      "unique_countries": 0.2121,
-      "unique_ips": 1.394,
-      "off_hours_ratio": 0.3538,
-      "avg_events_per_day": 1.3905,
-      "geo_velocity_max_kmh": 0.3123,
-      "mfa_absence_ratio": 1.3728
+      "login_hour_entropy": 0.2663,
+      "geo_variance_km": 0.491,
+      "device_churn_rate": 0.2061,
+      "failure_ratio": 0.7957,
+      "unique_countries": 0.551,
+      "unique_ips": 2.0217,
+      "off_hours_ratio": 0.3527,
+      "avg_events_per_day": 1.9686,
+      "geo_velocity_max_kmh": 0.2303,
+      "mfa_absence_ratio": 0.8291
     },
     "raw_features": {
-      "login_hour_entropy": 3.4447,
-      "geo_variance_km": 218.82,
-      "device_churn_rate": 0.5,
-      "failure_ratio": 0.03,
-      "unique_countries": 2.0,
-      "unique_ips": 200.0,
+      "login_hour_entropy": 3.4107,
+      "geo_variance_km": 0.0,
+      "device_churn_rate": 0.2593,
+      "failure_ratio": 0.0076,
+      "unique_countries": 1.0,
+      "unique_ips": 262.0,
       "off_hours_ratio": 0.0,
-      "avg_events_per_day": 6.67,
-      "geo_velocity_max_kmh": 908100.1,
-      "mfa_absence_ratio": 0.44
+      "avg_events_per_day": 8.73,
+      "geo_velocity_max_kmh": 0.0,
+      "mfa_absence_ratio": 0.4313
     }
   },
   {
     "rank": 9,
-    "username": "user_011",
-    "anomaly_score": 0.4589,
+    "username": "user_001",
+    "anomaly_score": 0.4522,
     "is_anomaly": false,
     "top_reasons": [
-      "[z=1.3] device_churn_rate=0.00 \u2014 Many new/unseen devices appeared recently \u2014 possible credential stuffing or account takeover"
+      "[z=2.0] unique_ips=189.00 \u2014 Logins from many unique IP addresses \u2014 possible credential sharing or botnet activity",
+      "[z=2.0] avg_events_per_day=6.30 \u2014 Unusually high login volume per day \u2014 possible automated access or service account abuse",
+      "[z=1.1] mfa_absence_ratio=0.37 \u2014 High proportion of logins without MFA \u2014 may indicate MFA bypass or legacy auth protocol abuse"
     ],
     "feature_contributions": {
-      "login_hour_entropy": 0.3375,
-      "geo_variance_km": 0.0447,
-      "device_churn_rate": 1.2809,
-      "failure_ratio": 0.543,
-      "unique_countries": 0.2121,
-      "unique_ips": 0.3318,
-      "off_hours_ratio": 0.3538,
-      "avg_events_per_day": 0.3317,
-      "geo_velocity_max_kmh": 0.233,
-      "mfa_absence_ratio": 0.3854
+      "login_hour_entropy": 0.1679,
+      "geo_variance_km": 0.491,
+      "device_churn_rate": 0.1996,
+      "failure_ratio": 0.3772,
+      "unique_countries": 0.551,
+      "unique_ips": 2.0018,
+      "off_hours_ratio": 0.3527,
+      "avg_events_per_day": 1.9914,
+      "geo_velocity_max_kmh": 0.2303,
+      "mfa_absence_ratio": 1.1103
     },
     "raw_features": {
-      "login_hour_entropy": 3.3968,
-      "geo_variance_km": 620.63,
-      "device_churn_rate": 0.0,
-      "failure_ratio": 0.0173,
-      "unique_countries": 2.0,
-      "unique_ips": 231.0,
+      "login_hour_entropy": 3.4275,
+      "geo_variance_km": 0.0,
+      "device_churn_rate": 0.2889,
+      "failure_ratio": 0.0212,
+      "unique_countries": 1.0,
+      "unique_ips": 189.0,
       "off_hours_ratio": 0.0,
-      "avg_events_per_day": 7.7,
-      "geo_velocity_max_kmh": 1564128.22,
-      "mfa_absence_ratio": 0.3939
+      "avg_events_per_day": 6.3,
+      "geo_velocity_max_kmh": 0.0,
+      "mfa_absence_ratio": 0.3651
     }
   },
   {
     "rank": 10,
-    "username": "user_000",
-    "anomaly_score": 0.4481,
+    "username": "user_004",
+    "anomaly_score": 0.4313,
     "is_anomaly": false,
     "top_reasons": [
-      "[z=2.3] mfa_absence_ratio=0.34 \u2014 High proportion of logins without MFA \u2014 may indicate MFA bypass or legacy auth protocol abuse",
-      "[z=1.3] device_churn_rate=0.00 \u2014 Many new/unseen devices appeared recently \u2014 possible credential stuffing or account takeover",
-      "[z=1.2] unique_ips=203.00 \u2014 Logins from many unique IP addresses \u2014 possible credential sharing or botnet activity"
+      "[z=1.0] mfa_absence_ratio=0.37 \u2014 High proportion of logins without MFA \u2014 may indicate MFA bypass or legacy auth protocol abuse"
     ],
     "feature_contributions": {
-      "login_hour_entropy": 0.0951,
-      "geo_variance_km": 0.5207,
-      "device_churn_rate": 1.2809,
-      "failure_ratio": 0.0947,
-      "unique_countries": 0.5657,
-      "unique_ips": 1.2269,
-      "off_hours_ratio": 0.3538,
-      "avg_events_per_day": 1.2233,
-      "geo_velocity_max_kmh": 0.4222,
-      "mfa_absence_ratio": 2.258
+      "login_hour_entropy": 0.2546,
+      "geo_variance_km": 0.2595,
+      "device_churn_rate": 0.2627,
+      "failure_ratio": 0.1156,
+      "unique_countries": 0.1885,
+      "unique_ips": 0.5886,
+      "off_hours_ratio": 0.3527,
+      "avg_events_per_day": 0.5671,
+      "geo_velocity_max_kmh": 0.1803,
+      "mfa_absence_ratio": 1.0078
     },
     "raw_features": {
-      "login_hour_entropy": 3.4382,
-      "geo_variance_km": 0.0,
+      "login_hour_entropy": 3.4127,
+      "geo_variance_km": 293.86,
       "device_churn_rate": 0.0,
-      "failure_ratio": 0.0345,
-      "unique_countries": 1.0,
-      "unique_ips": 203.0,
+      "failure_ratio": 0.0297,
+      "unique_countries": 2.0,
+      "unique_ips": 236.0,
       "off_hours_ratio": 0.0,
-      "avg_events_per_day": 6.77,
-      "geo_velocity_max_kmh": 0.0,
-      "mfa_absence_ratio": 0.3448
+      "avg_events_per_day": 7.87,
+      "geo_velocity_max_kmh": 596209.89,
+      "mfa_absence_ratio": 0.3686
     }
   },
   {
     "rank": 11,
-    "username": "user_010",
-    "anomaly_score": 0.4445,
+    "username": "user_018",
+    "anomaly_score": 0.4311,
     "is_anomaly": false,
     "top_reasons": [
-      "[z=1.3] device_churn_rate=0.00 \u2014 Many new/unseen devices appeared recently \u2014 possible credential stuffing or account takeover"
+      "[z=1.1] mfa_absence_ratio=0.37 \u2014 High proportion of logins without MFA \u2014 may indicate MFA bypass or legacy auth protocol abuse"
     ],
     "feature_contributions": {
-      "login_hour_entropy": 0.0968,
-      "geo_variance_km": 0.4944,
-      "device_churn_rate": 1.2809,
-      "failure_ratio": 0.2407,
-      "unique_countries": 0.2121,
-      "unique_ips": 0.9441,
-      "off_hours_ratio": 0.3538,
-      "avg_events_per_day": 0.9504,
-      "geo_velocity_max_kmh": 0.0926,
-      "mfa_absence_ratio": 0.4349
+      "login_hour_entropy": 0.1855,
+      "geo_variance_km": 0.3432,
+      "device_churn_rate": 0.2029,
+      "failure_ratio": 0.0879,
+      "unique_countries": 0.1885,
+      "unique_ips": 0.2028,
+      "off_hours_ratio": 0.3527,
+      "avg_events_per_day": 0.176,
+      "geo_velocity_max_kmh": 0.1549,
+      "mfa_absence_ratio": 1.0605
     },
     "raw_features": {
-      "login_hour_entropy": 3.4379,
-      "geo_variance_km": 34.35,
-      "device_churn_rate": 0.0,
-      "failure_ratio": 0.0289,
-      "unique_countries": 2.0,
-      "unique_ips": 242.0,
-      "off_hours_ratio": 0.0,
-      "avg_events_per_day": 8.07,
-      "geo_velocity_max_kmh": 4255516.27,
-      "mfa_absence_ratio": 0.3926
-    }
-  },
-  {
-    "rank": 12,
-    "username": "user_007",
-    "anomaly_score": 0.4421,
-    "is_anomaly": false,
-    "top_reasons": [],
-    "feature_contributions": {
-      "login_hour_entropy": 0.1952,
-      "geo_variance_km": 0.056,
-      "device_churn_rate": 0.3001,
-      "failure_ratio": 0.5013,
-      "unique_countries": 0.2121,
-      "unique_ips": 0.7259,
-      "off_hours_ratio": 0.3538,
-      "avg_events_per_day": 0.7217,
-      "geo_velocity_max_kmh": 0.104,
-      "mfa_absence_ratio": 0.2976
-    },
-    "raw_features": {
-      "login_hour_entropy": 3.4211,
-      "geo_variance_km": 605.96,
-      "device_churn_rate": 0.38,
-      "failure_ratio": 0.0189,
-      "unique_countries": 2.0,
-      "unique_ips": 212.0,
-      "off_hours_ratio": 0.0,
-      "avg_events_per_day": 7.07,
-      "geo_velocity_max_kmh": 2630049.53,
-      "mfa_absence_ratio": 0.3962
-    }
-  },
-  {
-    "rank": 13,
-    "username": "user_004",
-    "anomaly_score": 0.4384,
-    "is_anomaly": false,
-    "top_reasons": [
-      "[z=1.3] device_churn_rate=0.00 \u2014 Many new/unseen devices appeared recently \u2014 possible credential stuffing or account takeover",
-      "[z=1.2] unique_ips=247.00 \u2014 Logins from many unique IP addresses \u2014 possible credential sharing or botnet activity",
-      "[z=1.2] avg_events_per_day=8.23 \u2014 Unusually high login volume per day \u2014 possible automated access or service account abuse"
-    ],
-    "feature_contributions": {
-      "login_hour_entropy": 0.197,
-      "geo_variance_km": 0.4256,
-      "device_churn_rate": 1.2809,
-      "failure_ratio": 0.1494,
-      "unique_countries": 0.2121,
-      "unique_ips": 1.2225,
-      "off_hours_ratio": 0.3538,
-      "avg_events_per_day": 1.2179,
-      "geo_velocity_max_kmh": 0.3728,
-      "mfa_absence_ratio": 0.2748
-    },
-    "raw_features": {
-      "login_hour_entropy": 3.4208,
-      "geo_variance_km": 123.97,
-      "device_churn_rate": 0.0,
-      "failure_ratio": 0.0324,
-      "unique_countries": 2.0,
-      "unique_ips": 247.0,
-      "off_hours_ratio": 0.0,
-      "avg_events_per_day": 8.23,
-      "geo_velocity_max_kmh": 408274.16,
-      "mfa_absence_ratio": 0.3968
-    }
-  },
-  {
-    "rank": 14,
-    "username": "user_003",
-    "anomaly_score": 0.4235,
-    "is_anomaly": false,
-    "top_reasons": [
-      "[z=1.1] device_churn_rate=0.58 \u2014 Many new/unseen devices appeared recently \u2014 possible credential stuffing or account takeover",
-      "[z=1.1] unique_ips=206.00 \u2014 Logins from many unique IP addresses \u2014 possible credential sharing or botnet activity",
-      "[z=1.1] avg_events_per_day=6.87 \u2014 Unusually high login volume per day \u2014 possible automated access or service account abuse"
-    ],
-    "feature_contributions": {
-      "login_hour_entropy": 0.0588,
-      "geo_variance_km": 0.5207,
-      "device_churn_rate": 1.1459,
-      "failure_ratio": 0.4883,
-      "unique_countries": 0.5657,
-      "unique_ips": 1.0599,
-      "off_hours_ratio": 0.3538,
-      "avg_events_per_day": 1.0561,
-      "geo_velocity_max_kmh": 0.4222,
-      "mfa_absence_ratio": 0.5147
-    },
-    "raw_features": {
-      "login_hour_entropy": 3.4444,
-      "geo_variance_km": 0.0,
-      "device_churn_rate": 0.5833,
-      "failure_ratio": 0.0194,
-      "unique_countries": 1.0,
-      "unique_ips": 206.0,
-      "off_hours_ratio": 0.0,
-      "avg_events_per_day": 6.87,
-      "geo_velocity_max_kmh": 0.0,
-      "mfa_absence_ratio": 0.4175
-    }
-  },
-  {
-    "rank": 15,
-    "username": "user_002",
-    "anomaly_score": 0.4194,
-    "is_anomaly": false,
-    "top_reasons": [
-      "[z=1.4] mfa_absence_ratio=0.37 \u2014 High proportion of logins without MFA \u2014 may indicate MFA bypass or legacy auth protocol abuse",
-      "[z=1.3] avg_events_per_day=6.70 \u2014 Unusually high login volume per day \u2014 possible automated access or service account abuse",
-      "[z=1.3] unique_ips=201.00 \u2014 Logins from many unique IP addresses \u2014 possible credential sharing or botnet activity"
-    ],
-    "feature_contributions": {
-      "login_hour_entropy": 0.1097,
-      "geo_variance_km": 0.5207,
-      "device_churn_rate": 0.0667,
-      "failure_ratio": 0.3449,
-      "unique_countries": 0.5657,
-      "unique_ips": 1.3383,
-      "off_hours_ratio": 0.3538,
-      "avg_events_per_day": 1.3403,
-      "geo_velocity_max_kmh": 0.4222,
-      "mfa_absence_ratio": 1.3655
-    },
-    "raw_features": {
-      "login_hour_entropy": 3.4357,
-      "geo_variance_km": 0.0,
-      "device_churn_rate": 0.3239,
-      "failure_ratio": 0.0249,
-      "unique_countries": 1.0,
-      "unique_ips": 201.0,
-      "off_hours_ratio": 0.0,
-      "avg_events_per_day": 6.7,
-      "geo_velocity_max_kmh": 0.0,
-      "mfa_absence_ratio": 0.3682
-    }
-  },
-  {
-    "rank": 16,
-    "username": "user_016",
-    "anomaly_score": 0.4186,
-    "is_anomaly": false,
-    "top_reasons": [
-      "[z=1.3] mfa_absence_ratio=0.37 \u2014 High proportion of logins without MFA \u2014 may indicate MFA bypass or legacy auth protocol abuse"
-    ],
-    "feature_contributions": {
-      "login_hour_entropy": 0.1501,
-      "geo_variance_km": 0.5207,
-      "device_churn_rate": 0.3342,
-      "failure_ratio": 0.5509,
-      "unique_countries": 0.5657,
-      "unique_ips": 0.5545,
-      "off_hours_ratio": 0.3538,
-      "avg_events_per_day": 0.5491,
-      "geo_velocity_max_kmh": 0.4222,
-      "mfa_absence_ratio": 1.2892
-    },
-    "raw_features": {
-      "login_hour_entropy": 3.4288,
-      "geo_variance_km": 0.0,
-      "device_churn_rate": 0.3882,
-      "failure_ratio": 0.017,
-      "unique_countries": 1.0,
-      "unique_ips": 235.0,
-      "off_hours_ratio": 0.0,
-      "avg_events_per_day": 7.83,
-      "geo_velocity_max_kmh": 0.0,
-      "mfa_absence_ratio": 0.3702
-    }
-  },
-  {
-    "rank": 17,
-    "username": "user_015",
-    "anomaly_score": 0.4149,
-    "is_anomaly": false,
-    "top_reasons": [
-      "[z=1.1] mfa_absence_ratio=0.43 \u2014 High proportion of logins without MFA \u2014 may indicate MFA bypass or legacy auth protocol abuse"
-    ],
-    "feature_contributions": {
-      "login_hour_entropy": 0.1267,
-      "geo_variance_km": 0.2846,
-      "device_churn_rate": 0.2909,
-      "failure_ratio": 0.4257,
-      "unique_countries": 0.2121,
-      "unique_ips": 0.2205,
-      "off_hours_ratio": 0.3538,
-      "avg_events_per_day": 0.2147,
-      "geo_velocity_max_kmh": 0.2836,
-      "mfa_absence_ratio": 1.0792
-    },
-    "raw_features": {
-      "login_hour_entropy": 3.4328,
-      "geo_variance_km": 307.85,
-      "device_churn_rate": 0.3778,
-      "failure_ratio": 0.0218,
+      "login_hour_entropy": 3.4245,
+      "geo_variance_km": 187.65,
+      "device_churn_rate": 0.274,
+      "failure_ratio": 0.0306,
       "unique_countries": 2.0,
       "unique_ips": 229.0,
       "off_hours_ratio": 0.0,
       "avg_events_per_day": 7.63,
-      "geo_velocity_max_kmh": 1145715.92,
-      "mfa_absence_ratio": 0.4323
+      "geo_velocity_max_kmh": 900192.97,
+      "mfa_absence_ratio": 0.3668
     }
   },
   {
-    "rank": 18,
-    "username": "user_009",
-    "anomaly_score": 0.4139,
+    "rank": 12,
+    "username": "user_010",
+    "anomaly_score": 0.4294,
     "is_anomaly": false,
     "top_reasons": [
-      "[z=1.3] device_churn_rate=0.00 \u2014 Many new/unseen devices appeared recently \u2014 possible credential stuffing or account takeover"
+      "[z=1.5] mfa_absence_ratio=0.46 \u2014 High proportion of logins without MFA \u2014 may indicate MFA bypass or legacy auth protocol abuse",
+      "[z=1.4] unique_ips=200.00 \u2014 Logins from many unique IP addresses \u2014 possible credential sharing or botnet activity",
+      "[z=1.4] avg_events_per_day=6.67 \u2014 Unusually high login volume per day \u2014 possible automated access or service account abuse"
     ],
     "feature_contributions": {
-      "login_hour_entropy": 0.0699,
-      "geo_variance_km": 0.5207,
-      "device_churn_rate": 1.2809,
-      "failure_ratio": 0.0008,
-      "unique_countries": 0.5657,
-      "unique_ips": 0.8373,
-      "off_hours_ratio": 0.3538,
-      "avg_events_per_day": 0.8387,
-      "geo_velocity_max_kmh": 0.4222,
-      "mfa_absence_ratio": 0.515
+      "login_hour_entropy": 0.3015,
+      "geo_variance_km": 0.491,
+      "device_churn_rate": 0.2008,
+      "failure_ratio": 0.568,
+      "unique_countries": 0.551,
+      "unique_ips": 1.3956,
+      "off_hours_ratio": 0.3527,
+      "avg_events_per_day": 1.3885,
+      "geo_velocity_max_kmh": 0.2303,
+      "mfa_absence_ratio": 1.5234
     },
     "raw_features": {
-      "login_hour_entropy": 3.4425,
+      "login_hour_entropy": 3.4047,
+      "geo_variance_km": 0.0,
+      "device_churn_rate": 0.2836,
+      "failure_ratio": 0.015,
+      "unique_countries": 1.0,
+      "unique_ips": 200.0,
+      "off_hours_ratio": 0.0,
+      "avg_events_per_day": 6.67,
+      "geo_velocity_max_kmh": 0.0,
+      "mfa_absence_ratio": 0.455
+    }
+  },
+  {
+    "rank": 13,
+    "username": "user_019",
+    "anomaly_score": 0.4263,
+    "is_anomaly": false,
+    "top_reasons": [
+      "[z=1.7] unique_ips=257.00 \u2014 Logins from many unique IP addresses \u2014 possible credential sharing or botnet activity",
+      "[z=1.7] avg_events_per_day=8.57 \u2014 Unusually high login volume per day \u2014 possible automated access or service account abuse"
+    ],
+    "feature_contributions": {
+      "login_hour_entropy": 0.1304,
+      "geo_variance_km": 0.491,
+      "device_churn_rate": 0.1968,
+      "failure_ratio": 0.6695,
+      "unique_countries": 0.551,
+      "unique_ips": 1.7461,
+      "off_hours_ratio": 0.3527,
+      "avg_events_per_day": 1.7079,
+      "geo_velocity_max_kmh": 0.2303,
+      "mfa_absence_ratio": 0.7324
+    },
+    "raw_features": {
+      "login_hour_entropy": 3.4339,
+      "geo_variance_km": 0.0,
+      "device_churn_rate": 0.3019,
+      "failure_ratio": 0.0117,
+      "unique_countries": 1.0,
+      "unique_ips": 257.0,
+      "off_hours_ratio": 0.0,
+      "avg_events_per_day": 8.57,
+      "geo_velocity_max_kmh": 0.0,
+      "mfa_absence_ratio": 0.428
+    }
+  },
+  {
+    "rank": 14,
+    "username": "user_014",
+    "anomaly_score": 0.4194,
+    "is_anomaly": false,
+    "top_reasons": [
+      "[z=1.8] mfa_absence_ratio=0.34 \u2014 High proportion of logins without MFA \u2014 may indicate MFA bypass or legacy auth protocol abuse"
+    ],
+    "feature_contributions": {
+      "login_hour_entropy": 0.0672,
+      "geo_variance_km": 0.491,
+      "device_churn_rate": 0.2627,
+      "failure_ratio": 0.5218,
+      "unique_countries": 0.551,
+      "unique_ips": 0.9194,
+      "off_hours_ratio": 0.3527,
+      "avg_events_per_day": 0.893,
+      "geo_velocity_max_kmh": 0.2303,
+      "mfa_absence_ratio": 1.7578
+    },
+    "raw_features": {
+      "login_hour_entropy": 3.4447,
       "geo_variance_km": 0.0,
       "device_churn_rate": 0.0,
-      "failure_ratio": 0.0381,
+      "failure_ratio": 0.0165,
       "unique_countries": 1.0,
-      "unique_ips": 210.0,
+      "unique_ips": 242.0,
       "off_hours_ratio": 0.0,
-      "avg_events_per_day": 7.0,
+      "avg_events_per_day": 8.07,
       "geo_velocity_max_kmh": 0.0,
-      "mfa_absence_ratio": 0.3905
+      "mfa_absence_ratio": 0.343
     }
   },
   {
-    "rank": 19,
-    "username": "user_006",
-    "anomaly_score": 0.4127,
-    "is_anomaly": false,
-    "top_reasons": [
-      "[z=1.2] unique_ips=247.00 \u2014 Logins from many unique IP addresses \u2014 possible credential sharing or botnet activity",
-      "[z=1.2] avg_events_per_day=8.23 \u2014 Unusually high login volume per day \u2014 possible automated access or service account abuse"
-    ],
-    "feature_contributions": {
-      "login_hour_entropy": 0.3405,
-      "geo_variance_km": 0.5207,
-      "device_churn_rate": 0.1212,
-      "failure_ratio": 0.3606,
-      "unique_countries": 0.5657,
-      "unique_ips": 1.2225,
-      "off_hours_ratio": 0.3538,
-      "avg_events_per_day": 1.2179,
-      "geo_velocity_max_kmh": 0.4222,
-      "mfa_absence_ratio": 0.0342
-    },
-    "raw_features": {
-      "login_hour_entropy": 3.3963,
-      "geo_variance_km": 0.0,
-      "device_churn_rate": 0.337,
-      "failure_ratio": 0.0243,
-      "unique_countries": 1.0,
-      "unique_ips": 247.0,
-      "off_hours_ratio": 0.0,
-      "avg_events_per_day": 8.23,
-      "geo_velocity_max_kmh": 0.0,
-      "mfa_absence_ratio": 0.4049
-    }
-  },
-  {
-    "rank": 20,
-    "username": "user_012",
-    "anomaly_score": 0.4092,
+    "rank": 15,
+    "username": "user_009",
+    "anomaly_score": 0.418,
     "is_anomaly": false,
     "top_reasons": [],
     "feature_contributions": {
-      "login_hour_entropy": 0.2708,
-      "geo_variance_km": 0.4207,
-      "device_churn_rate": 0.133,
-      "failure_ratio": 0.3997,
-      "unique_countries": 0.2121,
-      "unique_ips": 0.3362,
-      "off_hours_ratio": 0.3538,
-      "avg_events_per_day": 0.3371,
-      "geo_velocity_max_kmh": 0.3294,
-      "mfa_absence_ratio": 0.4384
+      "login_hour_entropy": 0.2774,
+      "geo_variance_km": 0.4335,
+      "device_churn_rate": 0.2627,
+      "failure_ratio": 0.608,
+      "unique_countries": 0.1885,
+      "unique_ips": 0.3483,
+      "off_hours_ratio": 0.3527,
+      "avg_events_per_day": 0.3618,
+      "geo_velocity_max_kmh": 0.1809,
+      "mfa_absence_ratio": 0.2344
     },
     "raw_features": {
-      "login_hour_entropy": 3.4082,
-      "geo_variance_km": 130.33,
-      "device_churn_rate": 0.2759,
-      "failure_ratio": 0.0228,
+      "login_hour_entropy": 3.4088,
+      "geo_variance_km": 72.95,
+      "device_churn_rate": 0.0,
+      "failure_ratio": 0.0137,
       "unique_countries": 2.0,
       "unique_ips": 219.0,
       "off_hours_ratio": 0.0,
       "avg_events_per_day": 7.3,
-      "geo_velocity_max_kmh": 766987.6,
-      "mfa_absence_ratio": 0.4155
+      "geo_velocity_max_kmh": 589384.95,
+      "mfa_absence_ratio": 0.411
     }
   },
   {
-    "rank": 21,
-    "username": "user_013",
-    "anomaly_score": 0.4035,
+    "rank": 16,
+    "username": "user_012",
+    "anomaly_score": 0.4086,
     "is_anomaly": false,
     "top_reasons": [
-      "[z=1.3] device_churn_rate=0.00 \u2014 Many new/unseen devices appeared recently \u2014 possible credential stuffing or account takeover",
-      "[z=1.2] mfa_absence_ratio=0.43 \u2014 High proportion of logins without MFA \u2014 may indicate MFA bypass or legacy auth protocol abuse"
+      "[z=1.2] mfa_absence_ratio=0.45 \u2014 High proportion of logins without MFA \u2014 may indicate MFA bypass or legacy auth protocol abuse"
     ],
     "feature_contributions": {
-      "login_hour_entropy": 0.146,
-      "geo_variance_km": 0.5207,
-      "device_churn_rate": 1.2809,
-      "failure_ratio": 0.4049,
-      "unique_countries": 0.5657,
-      "unique_ips": 0.2249,
-      "off_hours_ratio": 0.3538,
-      "avg_events_per_day": 0.22,
-      "geo_velocity_max_kmh": 0.4222,
-      "mfa_absence_ratio": 1.1593
+      "login_hour_entropy": 0.2493,
+      "geo_variance_km": 0.4583,
+      "device_churn_rate": 0.2627,
+      "failure_ratio": 0.2233,
+      "unique_countries": 0.551,
+      "unique_ips": 0.2028,
+      "off_hours_ratio": 0.3527,
+      "avg_events_per_day": 0.176,
+      "geo_velocity_max_kmh": 0.2059,
+      "mfa_absence_ratio": 1.2422
     },
     "raw_features": {
-      "login_hour_entropy": 3.4295,
+      "login_hour_entropy": 3.4136,
+      "geo_variance_km": 41.44,
+      "device_churn_rate": 0.0,
+      "failure_ratio": 0.0262,
+      "unique_countries": 1.0,
+      "unique_ips": 229.0,
+      "off_hours_ratio": 0.0,
+      "avg_events_per_day": 7.63,
+      "geo_velocity_max_kmh": 291464.91,
+      "mfa_absence_ratio": 0.4454
+    }
+  },
+  {
+    "rank": 17,
+    "username": "user_006",
+    "anomaly_score": 0.4078,
+    "is_anomaly": false,
+    "top_reasons": [],
+    "feature_contributions": {
+      "login_hour_entropy": 0.1152,
+      "geo_variance_km": 0.491,
+      "device_churn_rate": 0.2627,
+      "failure_ratio": 0.7372,
+      "unique_countries": 0.551,
+      "unique_ips": 0.8444,
+      "off_hours_ratio": 0.3527,
+      "avg_events_per_day": 0.8507,
+      "geo_velocity_max_kmh": 0.2303,
+      "mfa_absence_ratio": 0.6445
+    },
+    "raw_features": {
+      "login_hour_entropy": 3.4365,
       "geo_variance_km": 0.0,
       "device_churn_rate": 0.0,
-      "failure_ratio": 0.0226,
-      "unique_countries": 1.0,
-      "unique_ips": 221.0,
-      "off_hours_ratio": 0.0,
-      "avg_events_per_day": 7.37,
-      "geo_velocity_max_kmh": 0.0,
-      "mfa_absence_ratio": 0.4344
-    }
-  },
-  {
-    "rank": 22,
-    "username": "user_017",
-    "anomaly_score": 0.4009,
-    "is_anomaly": false,
-    "top_reasons": [
-      "[z=1.2] unique_ips=247.00 \u2014 Logins from many unique IP addresses \u2014 possible credential sharing or botnet activity",
-      "[z=1.2] avg_events_per_day=8.23 \u2014 Unusually high login volume per day \u2014 possible automated access or service account abuse"
-    ],
-    "feature_contributions": {
-      "login_hour_entropy": 0.1027,
-      "geo_variance_km": 0.5207,
-      "device_churn_rate": 0.5023,
-      "failure_ratio": 0.3606,
-      "unique_countries": 0.5657,
-      "unique_ips": 1.2225,
-      "off_hours_ratio": 0.3538,
-      "avg_events_per_day": 1.2179,
-      "geo_velocity_max_kmh": 0.4222,
-      "mfa_absence_ratio": 0.2748
-    },
-    "raw_features": {
-      "login_hour_entropy": 3.4369,
-      "geo_variance_km": 0.0,
-      "device_churn_rate": 0.4286,
-      "failure_ratio": 0.0243,
-      "unique_countries": 1.0,
-      "unique_ips": 247.0,
-      "off_hours_ratio": 0.0,
-      "avg_events_per_day": 8.23,
-      "geo_velocity_max_kmh": 0.0,
-      "mfa_absence_ratio": 0.3968
-    }
-  },
-  {
-    "rank": 23,
-    "username": "user_008",
-    "anomaly_score": 0.3932,
-    "is_anomaly": false,
-    "top_reasons": [],
-    "feature_contributions": {
-      "login_hour_entropy": 0.0892,
-      "geo_variance_km": 0.5207,
-      "device_churn_rate": 0.0082,
-      "failure_ratio": 0.2302,
-      "unique_countries": 0.5657,
-      "unique_ips": 0.7771,
-      "off_hours_ratio": 0.3538,
-      "avg_events_per_day": 0.7832,
-      "geo_velocity_max_kmh": 0.4222,
-      "mfa_absence_ratio": 0.5684
-    },
-    "raw_features": {
-      "login_hour_entropy": 3.4392,
-      "geo_variance_km": 0.0,
-      "device_churn_rate": 0.3059,
-      "failure_ratio": 0.0293,
-      "unique_countries": 1.0,
-      "unique_ips": 239.0,
-      "off_hours_ratio": 0.0,
-      "avg_events_per_day": 7.97,
-      "geo_velocity_max_kmh": 0.0,
-      "mfa_absence_ratio": 0.3891
-    }
-  },
-  {
-    "rank": 24,
-    "username": "user_019",
-    "anomaly_score": 0.3819,
-    "is_anomaly": false,
-    "top_reasons": [],
-    "feature_contributions": {
-      "login_hour_entropy": 0.1583,
-      "geo_variance_km": 0.5207,
-      "device_churn_rate": 0.5341,
-      "failure_ratio": 0.2641,
-      "unique_countries": 0.5657,
-      "unique_ips": 0.6146,
-      "off_hours_ratio": 0.3538,
-      "avg_events_per_day": 0.6213,
-      "geo_velocity_max_kmh": 0.4222,
-      "mfa_absence_ratio": 0.4537
-    },
-    "raw_features": {
-      "login_hour_entropy": 3.4274,
-      "geo_variance_km": 0.0,
-      "device_churn_rate": 0.1795,
-      "failure_ratio": 0.028,
-      "unique_countries": 1.0,
-      "unique_ips": 214.0,
-      "off_hours_ratio": 0.0,
-      "avg_events_per_day": 7.13,
-      "geo_velocity_max_kmh": 0.0,
-      "mfa_absence_ratio": 0.4159
-    }
-  },
-  {
-    "rank": 25,
-    "username": "user_001",
-    "anomaly_score": 0.3759,
-    "is_anomaly": false,
-    "top_reasons": [],
-    "feature_contributions": {
-      "login_hour_entropy": 0.1484,
-      "geo_variance_km": 0.5207,
-      "device_churn_rate": 0.0759,
-      "failure_ratio": 0.2485,
-      "unique_countries": 0.5657,
-      "unique_ips": 0.8373,
-      "off_hours_ratio": 0.3538,
-      "avg_events_per_day": 0.8387,
-      "geo_velocity_max_kmh": 0.4222,
-      "mfa_absence_ratio": 0.2096
-    },
-    "raw_features": {
-      "login_hour_entropy": 3.4291,
-      "geo_variance_km": 0.0,
-      "device_churn_rate": 0.3261,
-      "failure_ratio": 0.0286,
+      "failure_ratio": 0.0095,
       "unique_countries": 1.0,
       "unique_ips": 210.0,
       "off_hours_ratio": 0.0,
       "avg_events_per_day": 7.0,
       "geo_velocity_max_kmh": 0.0,
-      "mfa_absence_ratio": 0.4095
+      "mfa_absence_ratio": 0.381
+    }
+  },
+  {
+    "rank": 18,
+    "username": "user_003",
+    "anomaly_score": 0.4018,
+    "is_anomaly": false,
+    "top_reasons": [],
+    "feature_contributions": {
+      "login_hour_entropy": 0.1943,
+      "geo_variance_km": 0.4671,
+      "device_churn_rate": 0.1869,
+      "failure_ratio": 0.5095,
+      "unique_countries": 0.1885,
+      "unique_ips": 0.6438,
+      "off_hours_ratio": 0.3527,
+      "avg_events_per_day": 0.616,
+      "geo_velocity_max_kmh": 0.1997,
+      "mfa_absence_ratio": 0.3105
+    },
+    "raw_features": {
+      "login_hour_entropy": 3.423,
+      "geo_variance_km": 30.3,
+      "device_churn_rate": 0.3469,
+      "failure_ratio": 0.0169,
+      "unique_countries": 2.0,
+      "unique_ips": 237.0,
+      "off_hours_ratio": 0.0,
+      "avg_events_per_day": 7.9,
+      "geo_velocity_max_kmh": 364596.36,
+      "mfa_absence_ratio": 0.3924
+    }
+  },
+  {
+    "rank": 19,
+    "username": "user_007",
+    "anomaly_score": 0.3973,
+    "is_anomaly": false,
+    "top_reasons": [],
+    "feature_contributions": {
+      "login_hour_entropy": 0.1545,
+      "geo_variance_km": 0.4757,
+      "device_churn_rate": 0.2627,
+      "failure_ratio": 0.4757,
+      "unique_countries": 0.1885,
+      "unique_ips": 0.183,
+      "off_hours_ratio": 0.3527,
+      "avg_events_per_day": 0.1988,
+      "geo_velocity_max_kmh": 0.1858,
+      "mfa_absence_ratio": 0.457
+    },
+    "raw_features": {
+      "login_hour_entropy": 3.4298,
+      "geo_variance_km": 19.35,
+      "device_churn_rate": 0.0,
+      "failure_ratio": 0.018,
+      "unique_countries": 2.0,
+      "unique_ips": 222.0,
+      "off_hours_ratio": 0.0,
+      "avg_events_per_day": 7.4,
+      "geo_velocity_max_kmh": 531122.39,
+      "mfa_absence_ratio": 0.3874
+    }
+  },
+  {
+    "rank": 20,
+    "username": "user_013",
+    "anomaly_score": 0.3907,
+    "is_anomaly": false,
+    "top_reasons": [
+      "[z=1.4] mfa_absence_ratio=0.35 \u2014 High proportion of logins without MFA \u2014 may indicate MFA bypass or legacy auth protocol abuse"
+    ],
+    "feature_contributions": {
+      "login_hour_entropy": 0.0748,
+      "geo_variance_km": 0.491,
+      "device_churn_rate": 0.2321,
+      "failure_ratio": 0.3495,
+      "unique_countries": 0.551,
+      "unique_ips": 0.0375,
+      "off_hours_ratio": 0.3527,
+      "avg_events_per_day": 0.013,
+      "geo_velocity_max_kmh": 0.2303,
+      "mfa_absence_ratio": 1.4355
+    },
+    "raw_features": {
+      "login_hour_entropy": 3.4434,
+      "geo_variance_km": 0.0,
+      "device_churn_rate": 0.14,
+      "failure_ratio": 0.0221,
+      "unique_countries": 1.0,
+      "unique_ips": 226.0,
+      "off_hours_ratio": 0.0,
+      "avg_events_per_day": 7.53,
+      "geo_velocity_max_kmh": 0.0,
+      "mfa_absence_ratio": 0.354
+    }
+  },
+  {
+    "rank": 21,
+    "username": "user_015",
+    "anomaly_score": 0.3903,
+    "is_anomaly": false,
+    "top_reasons": [
+      "[z=1.2] mfa_absence_ratio=0.44 \u2014 High proportion of logins without MFA \u2014 may indicate MFA bypass or legacy auth protocol abuse"
+    ],
+    "feature_contributions": {
+      "login_hour_entropy": 0.2171,
+      "geo_variance_km": 0.491,
+      "device_churn_rate": 0.2081,
+      "failure_ratio": 0.5926,
+      "unique_countries": 0.551,
+      "unique_ips": 0.7342,
+      "off_hours_ratio": 0.3527,
+      "avg_events_per_day": 0.7366,
+      "geo_velocity_max_kmh": 0.2303,
+      "mfa_absence_ratio": 1.1836
+    },
+    "raw_features": {
+      "login_hour_entropy": 3.4191,
+      "geo_variance_km": 0.0,
+      "device_churn_rate": 0.25,
+      "failure_ratio": 0.0142,
+      "unique_countries": 1.0,
+      "unique_ips": 212.0,
+      "off_hours_ratio": 0.0,
+      "avg_events_per_day": 7.07,
+      "geo_velocity_max_kmh": 0.0,
+      "mfa_absence_ratio": 0.4434
+    }
+  },
+  {
+    "rank": 22,
+    "username": "user_016",
+    "anomaly_score": 0.3883,
+    "is_anomaly": false,
+    "top_reasons": [],
+    "feature_contributions": {
+      "login_hour_entropy": 0.3249,
+      "geo_variance_km": 0.491,
+      "device_churn_rate": 0.2136,
+      "failure_ratio": 0.3064,
+      "unique_countries": 0.551,
+      "unique_ips": 0.679,
+      "off_hours_ratio": 0.3527,
+      "avg_events_per_day": 0.6877,
+      "geo_velocity_max_kmh": 0.2303,
+      "mfa_absence_ratio": 0.4336
+    },
+    "raw_features": {
+      "login_hour_entropy": 3.4007,
+      "geo_variance_km": 0.0,
+      "device_churn_rate": 0.225,
+      "failure_ratio": 0.0235,
+      "unique_countries": 1.0,
+      "unique_ips": 213.0,
+      "off_hours_ratio": 0.0,
+      "avg_events_per_day": 7.1,
+      "geo_velocity_max_kmh": 0.0,
+      "mfa_absence_ratio": 0.4178
+    }
+  },
+  {
+    "rank": 23,
+    "username": "user_017",
+    "anomaly_score": 0.3874,
+    "is_anomaly": false,
+    "top_reasons": [],
+    "feature_contributions": {
+      "login_hour_entropy": 0.1275,
+      "geo_variance_km": 0.491,
+      "device_churn_rate": 0.218,
+      "failure_ratio": 0.2352,
+      "unique_countries": 0.551,
+      "unique_ips": 0.3483,
+      "off_hours_ratio": 0.3527,
+      "avg_events_per_day": 0.3618,
+      "geo_velocity_max_kmh": 0.2303,
+      "mfa_absence_ratio": 0.4365
+    },
+    "raw_features": {
+      "login_hour_entropy": 3.4344,
+      "geo_variance_km": 0.0,
+      "device_churn_rate": 0.2045,
+      "failure_ratio": 0.0411,
+      "unique_countries": 1.0,
+      "unique_ips": 219.0,
+      "off_hours_ratio": 0.0,
+      "avg_events_per_day": 7.3,
+      "geo_velocity_max_kmh": 0.0,
+      "mfa_absence_ratio": 0.3881
+    }
+  },
+  {
+    "rank": 24,
+    "username": "user_000",
+    "anomaly_score": 0.38,
+    "is_anomaly": false,
+    "top_reasons": [],
+    "feature_contributions": {
+      "login_hour_entropy": 0.0766,
+      "geo_variance_km": 0.491,
+      "device_churn_rate": 0.2627,
+      "failure_ratio": 0.6357,
+      "unique_countries": 0.551,
+      "unique_ips": 0.4784,
+      "off_hours_ratio": 0.3527,
+      "avg_events_per_day": 0.453,
+      "geo_velocity_max_kmh": 0.2303,
+      "mfa_absence_ratio": 0.665
+    },
+    "raw_features": {
+      "login_hour_entropy": 3.4431,
+      "geo_variance_km": 0.0,
+      "device_churn_rate": 0.0,
+      "failure_ratio": 0.0128,
+      "unique_countries": 1.0,
+      "unique_ips": 234.0,
+      "off_hours_ratio": 0.0,
+      "avg_events_per_day": 7.8,
+      "geo_velocity_max_kmh": 0.0,
+      "mfa_absence_ratio": 0.3803
+    }
+  },
+  {
+    "rank": 25,
+    "username": "user_011",
+    "anomaly_score": 0.3652,
+    "is_anomaly": false,
+    "top_reasons": [],
+    "feature_contributions": {
+      "login_hour_entropy": 0.2177,
+      "geo_variance_km": 0.491,
+      "device_churn_rate": 0.2204,
+      "failure_ratio": 0.371,
+      "unique_countries": 0.551,
+      "unique_ips": 0.4784,
+      "off_hours_ratio": 0.3527,
+      "avg_events_per_day": 0.453,
+      "geo_velocity_max_kmh": 0.2303,
+      "mfa_absence_ratio": 0.3369
+    },
+    "raw_features": {
+      "login_hour_entropy": 3.419,
+      "geo_variance_km": 0.0,
+      "device_churn_rate": 0.1935,
+      "failure_ratio": 0.0214,
+      "unique_countries": 1.0,
+      "unique_ips": 234.0,
+      "off_hours_ratio": 0.0,
+      "avg_events_per_day": 7.8,
+      "geo_velocity_max_kmh": 0.0,
+      "mfa_absence_ratio": 0.4145
     }
   }
 ]
