@@ -96,3 +96,61 @@ The codebase has a limited attack surface:
 - No hardcoded secrets, API keys, or credentials
 - All file path inputs come from CLI arguments (trusted values)
 - JSON parsing uses only `json.loads` (safe)
+
+## GitHub Actions - Automated Security Review on Pull Requests
+
+This project uses a GitHub Actions workflow to automatically run a security review on every pull request. The workflow leverages the [Claude Code Security Review](https://github.com/anthropics/claude-code-security-review) action to perform Static Application Security Testing (SAST) and Software Composition Analysis (SCA).
+
+### How It Works
+
+1. **Trigger**: The workflow runs automatically when a pull request is opened or updated against any branch.
+2. **Checkout**: The action checks out the PR's head commit with a fetch depth of 2 (to allow diff-based analysis).
+3. **Security Scan**: The `anthropics/claude-code-security-review@main` action analyzes the changed files for vulnerabilities including:
+   - SQL injection, XSS, and other OWASP Top 10 risks
+   - Insecure deserialization and unsafe function usage
+   - Hardcoded secrets or credentials
+   - Dependency vulnerabilities
+4. **PR Comment**: Results are posted directly as a comment on the pull request (`comment-pr: true`), giving reviewers immediate visibility into any findings.
+
+### Workflow Configuration
+
+The workflow is defined in `.github/workflows/security.yml`:
+
+```yaml
+name: Security Review
+
+permissions:
+  pull-requests: write
+  contents: read
+
+on:
+  pull_request:
+
+jobs:
+  security:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          fetch-depth: 2
+
+      - uses: anthropics/claude-code-security-review@main
+        with:
+          comment-pr: true
+          claude-api-key: ${{ secrets.CLAUDE_API_KEY }}
+```
+
+### Setup Requirements
+
+- **`CLAUDE_API_KEY`**: Must be stored as a repository secret (`Settings > Secrets and variables > Actions`). This key authenticates with the Anthropic API to power the security analysis.
+- **Permissions**: The workflow requires `pull-requests: write` to post review comments and `contents: read` to access the repository code.
+
+### Testing the Workflow
+
+To test the security review workflow:
+
+1. Create a feature branch: `git checkout -b feature/your-change`
+2. Make changes and push: `git push -u origin feature/your-change`
+3. Open a pull request on GitHub
+4. The security review will run automatically and post findings as a PR comment
