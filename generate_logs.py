@@ -1,7 +1,7 @@
 """
 Synthetic auth log generator for UEBA testing.
 
-Generates realistic Windows / Okta / AWS auth events with:
+Generates realistic Windows / Okta / AWS / Webapp / Linux auth events with:
 - Normal users: consistent hours, stable geos, few devices
 - Anomalous users: odd hours, geo-hopping, device churn, high failure rates
 """
@@ -68,6 +68,23 @@ WEBAPP_HTTP_METHODS = {
     "account_lockout": "POST",
 }
 
+LINUX_AUTH_SERVICES = ["ssh", "ssh", "ssh", "sudo", "sudo", "su", "pam"]
+LINUX_AUTH_METHODS = ["password", "publickey", "keyboard-interactive"]
+LINUX_HOSTNAMES = [
+    "web-srv-01", "web-srv-02", "db-srv-01", "db-srv-02",
+    "app-srv-01", "app-srv-02", "mail-srv-01", "ci-srv-01",
+]
+LINUX_SUDO_COMMANDS = [
+    "/bin/bash", "/usr/bin/apt", "/usr/bin/systemctl",
+    "/usr/bin/journalctl", "/usr/sbin/reboot", "/usr/bin/docker",
+    "/usr/bin/cat /etc/shadow", "/usr/bin/vi /etc/hosts",
+]
+LINUX_TTY = ["pts/0", "pts/1", "pts/2", "ttyS0"]
+LINUX_USER_AGENTS = [
+    "OpenSSH_9.6", "OpenSSH_9.2p1", "OpenSSH_8.9p1",
+    "PuTTY_Release_0.80", "libssh2/1.11.0",
+]
+
 
 def _pick_geo(allowed: list[str]) -> tuple[str, str, float, float]:
     return GEOS[random.choice(allowed)]
@@ -106,7 +123,7 @@ def build_normal_users(n: int = 20) -> list[UserProfile]:
     for i in range(n):
         geo_keys = list(GEOS.keys())
         home = random.sample(geo_keys, k=random.randint(1, 2))
-        sources = random.sample(["windows", "okta", "aws", "webapp"], k=random.randint(1, 4))
+        sources = random.sample(["windows", "okta", "aws", "webapp", "linux"], k=random.randint(1, 5))
         users.append(UserProfile(
             username=f"user_{i:03d}",
             sources=sources,
@@ -134,7 +151,7 @@ def build_anomalous_users(n: int = 5) -> list[UserProfile]:
     for i in range(n):
         geo_keys = list(GEOS.keys())
         home = random.sample(geo_keys, k=1)
-        sources = random.sample(["windows", "okta", "aws", "webapp"], k=random.randint(2, 4))
+        sources = random.sample(["windows", "okta", "aws", "webapp", "linux"], k=random.randint(2, 5))
         traits = trait_combos[i % len(trait_combos)]
         users.append(UserProfile(
             username=f"anomaly_{i:03d}",
@@ -206,9 +223,9 @@ def _gen_event(
         "geo_city": geo[1],
         "geo_lat": geo[2],
         "geo_lon": geo[3],
-        "device_id": device if source != "webapp" else f"fp-{random.randint(0x1000, 0xffff):04x}",
-        "device_type": "workstation" if source == "windows" else "browser",
-        "user_agent": random.choice(WEBAPP_USER_AGENTS if source == "webapp" else USER_AGENTS),
+        "device_id": device if source not in ("webapp", "linux") else (f"fp-{random.randint(0x1000, 0xffff):04x}" if source == "webapp" else random.choice(LINUX_HOSTNAMES)),
+        "device_type": {"windows": "workstation", "webapp": "browser", "linux": "server"}.get(source, "browser"),
+        "user_agent": random.choice(LINUX_USER_AGENTS if source == "linux" else (WEBAPP_USER_AGENTS if source == "webapp" else USER_AGENTS)),
         "session_id": f"sess-{random.randint(100000, 999999)}",
         "mfa_used": random.random() < 0.6,
     }
@@ -231,6 +248,30 @@ def _gen_event(
             event["status_code"] = 423
         else:
             event["status_code"] = 200
+
+    elif source == "linux":
+        auth_service = random.choice(LINUX_AUTH_SERVICES)
+        hostname = random.choice(LINUX_HOSTNAMES)
+        event["auth_service"] = auth_service
+        event["hostname"] = hostname
+        event["device_id"] = hostname
+        event["pid"] = random.randint(1000, 65535)
+        event["tty"] = random.choice(LINUX_TTY)
+
+        if auth_service == "ssh":
+            auth_method = random.choice(LINUX_AUTH_METHODS)
+            event["auth_method"] = auth_method
+            event["port"] = 22
+            event["protocol"] = "ssh2"
+        elif auth_service == "sudo":
+            event["target_user"] = "root"
+            event["command"] = random.choice(LINUX_SUDO_COMMANDS)
+        elif auth_service == "su":
+            event["target_user"] = random.choice(["root", "www-data", "postgres"])
+        elif auth_service == "pam":
+            # Override result for PAM lockout scenario
+            if random.random() < 0.1:
+                event["result"] = "locked_out"
 
     return event
 
@@ -269,7 +310,7 @@ def save_dataset(output_dir: Path, events: list[dict], anomalous_users: list[str
     output_dir.mkdir(parents=True, exist_ok=True)
 
     # Split by source type
-    by_source: dict[str, list[dict]] = {"windows": [], "okta": [], "aws": [], "webapp": []}
+    by_source: dict[str, list[dict]] = {"windows": [], "okta": [], "aws": [], "webapp": [], "linux": []}
     for e in events:
         by_source.setdefault(e["source"], []).append(e)
 

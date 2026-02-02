@@ -1,5 +1,5 @@
 """
-UEBA Data Models — Normalized auth event schema for Windows, Okta, and AWS logs.
+UEBA Data Models — Normalized auth event schema for Windows, Okta, AWS, Webapp, and Linux logs.
 """
 
 from __future__ import annotations
@@ -17,6 +17,7 @@ class LogSource(str, Enum):
     OKTA = "okta"
     AWS = "aws"
     WEBAPP = "webapp"
+    LINUX = "linux"
 
 
 class AuthResult(str, Enum):
@@ -214,6 +215,75 @@ def parse_webapp_event(raw: dict) -> AuthEvent:
     )
 
 
+def parse_linux_event(raw: dict) -> AuthEvent:
+    """Parse a Linux authentication event (SSH, sudo, su, PAM)."""
+    auth_service = raw.get("auth_service", "").lower()
+    result_str = raw.get("result", "").lower()
+
+    if auth_service == "ssh":
+        # SSH: "Accepted" → SUCCESS, "Failed" → FAILURE
+        msg = raw.get("message", "")
+        if "Accepted" in msg:
+            result = AuthResult.SUCCESS
+        elif "Failed" in msg:
+            result = AuthResult.FAILURE
+        elif result_str in ("success", "failure"):
+            result = AuthResult(result_str)
+        else:
+            result = _parse_result(raw)
+    elif auth_service == "sudo":
+        # Sudo: check for explicit success/failure
+        msg = raw.get("message", "")
+        if "NOT" in msg or result_str == "failure":
+            result = AuthResult.FAILURE
+        elif result_str == "success":
+            result = AuthResult.SUCCESS
+        else:
+            result = _parse_result(raw)
+    elif auth_service == "su":
+        # Su: "Successful su" → SUCCESS, "FAILED su" → FAILURE
+        msg = raw.get("message", "")
+        if "Successful su" in msg or result_str == "success":
+            result = AuthResult.SUCCESS
+        elif "FAILED su" in msg or result_str == "failure":
+            result = AuthResult.FAILURE
+        else:
+            result = _parse_result(raw)
+    elif auth_service == "pam":
+        # PAM: "session opened" → SUCCESS, "authentication failure" → FAILURE
+        msg = raw.get("message", "")
+        if "session opened" in msg or result_str == "success":
+            result = AuthResult.SUCCESS
+        elif "authentication failure" in msg or result_str == "failure":
+            result = AuthResult.FAILURE
+        elif result_str == "locked_out":
+            result = AuthResult.LOCKED_OUT
+        else:
+            result = _parse_result(raw)
+    else:
+        result = _parse_result(raw)
+
+    ts = _parse_timestamp(raw.get("timestamp", ""))
+
+    return AuthEvent(
+        timestamp=ts,
+        username=raw.get("username", "unknown"),
+        source=LogSource.LINUX,
+        result=result,
+        source_ip=raw.get("source_ip", "0.0.0.0"),
+        geo_country=raw.get("geo_country", "unknown"),
+        geo_city=raw.get("geo_city", "unknown"),
+        geo_lat=float(raw.get("geo_lat", 0.0)),
+        geo_lon=float(raw.get("geo_lon", 0.0)),
+        device_id=raw.get("hostname", raw.get("device_id", "unknown")),
+        device_type="server",
+        user_agent=raw.get("user_agent", ""),
+        session_id=raw.get("session_id", ""),
+        mfa_used=bool(raw.get("mfa_used", False)),
+        raw=raw,
+    )
+
+
 # ---------------------------------------------------------------------------
 # Unified loader
 # ---------------------------------------------------------------------------
@@ -223,6 +293,7 @@ PARSERS = {
     LogSource.OKTA: parse_okta_event,
     LogSource.AWS: parse_aws_event,
     LogSource.WEBAPP: parse_webapp_event,
+    LogSource.LINUX: parse_linux_event,
 }
 
 
